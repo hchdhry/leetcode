@@ -9,13 +9,12 @@ class Solution(object):
         left = 0
         targetFound = False
 
-        while targetFound==False:
+        while left<right:
             if numbers[left] + numbers[right] > target:
                 right -=1
             elif numbers[left] + numbers[right] < target:
                 left+=1
             else:
-                targetFound = True
                 return [left+1,right+1]
         
       
