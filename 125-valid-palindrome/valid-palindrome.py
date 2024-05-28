@@ -4,8 +4,21 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        # Create a new string containing only alphanumeric characters
-        newstring = ''.join(char.lower() for char in s if char.isalnum())
-        
-        # Check if the new string is equal to its reverse
-        return newstring == newstring[::-1]
+        left, right = 0, len(s) - 1
+
+        while left < right:
+          
+            while left < right and not s[left].isalnum():
+                left += 1
+
+            while left < right and not s[right].isalnum():
+                right -= 1
+
+            if left < right and s[left].lower() != s[right].lower():
+                return False
+
+ 
+            left += 1
+            right -= 1
+
+        return True
