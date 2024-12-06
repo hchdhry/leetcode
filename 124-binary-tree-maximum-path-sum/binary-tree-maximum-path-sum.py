@@ -13,18 +13,14 @@ class Solution:
             if not node:
                 return 0
 
-            
-            left = max(dfs(node.left), 0)  
-            right = max(dfs(node.right), 0)
 
-          
-            currentSum = node.val + left + right
+            left = max(dfs(node.left),0)
+            right = max(dfs(node.right),0)
 
-          
-            self.output = max(self.output, currentSum)
+            currentSum = node.val+left+right
+            self.output = max(currentSum,self.output)
 
-          
             return node.val + max(left, right)
 
-        dfs(root) 
+        dfs(root)
         return self.output
