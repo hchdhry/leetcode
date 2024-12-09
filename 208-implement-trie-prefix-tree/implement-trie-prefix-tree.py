@@ -1,30 +1,50 @@
+class TrieNode:
+        def __init__(self):
+            self.endofword = False
+            self.children = {}
 class Trie:
+    
 
     def __init__(self):
-        self.array = []
+        self.root = TrieNode()
         
 
     def insert(self, word: str) -> None:
-        self.array.append(word)
+        cur = self.root
+        for letter in word:
+            if letter not in cur.children:
+                cur.children[letter]= TrieNode()          
+            cur = cur.children[letter]
+        cur.endofword = True
+
+                
+      
 
         
 
     def search(self, word: str) -> bool:
-        for i in range(len(self.array)):
-            if word == self.array[i]:
-                return True
+        cur = self.root
+        for letter in word:
+            if letter in cur.children:
+                cur = cur.children[letter]
+            else:
+                return False
+
+        if cur.endofword is True:
+            return True
         return False
-        
+
 
         
 
     def startsWith(self, prefix: str) -> bool:
-        for i in range(len(self.array)):
-            potentialPrefix = self.array[i][:len(prefix)]
-            if prefix == potentialPrefix:
-                return True
-            
-        return False
+        cur = self.root
+        for letter in prefix:
+            if letter in cur.children:
+                cur = cur.children[letter]
+            else:
+                return False
+        return True
 
         
 
