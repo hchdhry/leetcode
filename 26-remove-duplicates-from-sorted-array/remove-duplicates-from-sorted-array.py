@@ -1,12 +1,11 @@
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
         seen = set()
-        write_index = 0
-
+        index = 0
         for num in nums:
             if num not in seen:
-                nums[write_index] = num
-                write_index += 1
+                nums[index] = num
                 seen.add(num)
-
-        return write_index 
+                index+=1
+        return index
+       
