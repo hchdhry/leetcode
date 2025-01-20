@@ -4,6 +4,6 @@ class Solution:
         output = []
         for num in nums:
             hash[num] = hash.get(num,0)+1
-        return list(filter(lambda x: hash[x]>1,hash))
+        return [key for key in hash if hash[key]>1]
 
         
