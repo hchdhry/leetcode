@@ -5,7 +5,6 @@ class Solution:
         n = len(sortedList)
 
         for x in range(n - 2):
-            # Skip duplicates for x
             if x > 0 and sortedList[x] == sortedList[x - 1]:
                 continue
 
