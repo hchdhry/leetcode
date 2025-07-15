@@ -1,4 +1,6 @@
 class Solution:
     def isPalindrome(self, x: int) -> bool:
-        reversedInput = str(x)
-        return reversedInput == reversedInput[::-1]
+        string= str(x)
+       
+        return string[::-1] == str(x)
+    
